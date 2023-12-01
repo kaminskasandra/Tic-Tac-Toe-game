@@ -27,7 +27,7 @@ public class Row {
     }
 
     public void move(int index, Figure figure) {
-        columns.add(index, figure);
+        columns.set(index, figure);
     }
 
 
