@@ -1,5 +1,10 @@
 package com.kodilla.tictactoe;
 
+import com.kodilla.tictactoe.figures.Circle;
+import com.kodilla.tictactoe.figures.Cross;
+import com.kodilla.tictactoe.figures.Figure;
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameRunner {
@@ -8,6 +13,7 @@ public class GameRunner {
 
     public void TttRunner(Board board) {
         Scanner scanner = new Scanner(System.in);
+        ComputerMoves computerMoves = new ComputerMoves();
         boolean end = false;
 
         System.out.println("Welcome to the 'Tic-Tac-Toe' game. Please enter your name:");
@@ -34,18 +40,30 @@ public class GameRunner {
         System.out.println(board);
 
         while (!end) {
-            Coords coords = UserDialogs.getCoords();
+            Coords coords = UserDialogs.getCoords(board);
 
-            board.getRows().get(coords.getCol()).move(coords.getRow(), whoseMove);
+            board.getRows().get(coords.getRow()).move(coords.getCol(), whoseMove);
             System.out.println(board);
-            end = checkWinner();
+            switchPlayer();
+            computerMoves.computerMove(board, whoseMove);
+            System.out.println(board);
+            //end = checkWinner();
             switchPlayer();
 
         }
     }
+
     private boolean checkWinner() {
-        return false;
+        boolean gameIsWon = true;
+        if (gameIsWon) {
+            System.out.println("The winner is: ");
+        } else {
+            System.out.println("It's a tie!");
+        }
+        return true;
     }
+
+
 
     private void switchPlayer() {
         if (whoseMove instanceof Cross) {

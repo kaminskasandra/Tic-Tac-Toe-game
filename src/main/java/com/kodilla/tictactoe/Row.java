@@ -1,5 +1,8 @@
 package com.kodilla.tictactoe;
 
+import com.kodilla.tictactoe.figures.Empty;
+import com.kodilla.tictactoe.figures.Figure;
+
 import java.util.ArrayList;
 import java.util.List;
 
