@@ -15,6 +15,7 @@ public class GameRunner {
         Scanner scanner = new Scanner(System.in);
         ComputerMoves computerMoves = new ComputerMoves();
         boolean end = false;
+        boolean isComputerGame = false;
 
         System.out.println("Welcome to the 'Tic-Tac-Toe' game. Please enter your name:");
         String name = scanner.nextLine();
@@ -22,6 +23,7 @@ public class GameRunner {
         String gameVersion = scanner.nextLine();
         if (gameVersion.equals("1")) {
             System.out.println("You will play against the computer");
+            isComputerGame = true;
         } else if (gameVersion.equals("2")) {
             System.out.println(("You will play against the another player. Please enter the second player's name:"));
             String nameSecondPlayer = scanner.nextLine();
@@ -30,6 +32,7 @@ public class GameRunner {
             gameVersion = scanner.nextLine();
             if (gameVersion.equals("1")) {
                 System.out.println("You will play against the computer");
+                isComputerGame = true;
             } else if (gameVersion.equals("2")) {
                 System.out.println(("You will play against the another player. Please enter the second player's name:"));
                 String nameSecondPlayer = scanner.nextLine();
@@ -41,11 +44,12 @@ public class GameRunner {
 
         while (!end) {
             Coords coords = UserDialogs.getCoords(board);
-
             board.getRows().get(coords.getRow()).move(coords.getCol(), whoseMove);
-            System.out.println(board);
-            switchPlayer();
-            computerMoves.computerMove(board, whoseMove);
+            if (isComputerGame) {
+                System.out.println(board);
+                switchPlayer();
+                computerMoves.computerMove(board, whoseMove);
+            }
             System.out.println(board);
             //end = checkWinner();
             switchPlayer();
