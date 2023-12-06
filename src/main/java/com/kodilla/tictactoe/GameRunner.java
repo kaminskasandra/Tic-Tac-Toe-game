@@ -7,7 +7,6 @@ import com.kodilla.tictactoe.figures.Figure;
 import java.util.Scanner;
 
 public class GameRunner {
-
     private Figure whoseMove = new Cross();
 
     public void TttRunner(Board board) {
@@ -37,25 +36,29 @@ public class GameRunner {
         while (!end) {
             Coords coords = UserDialogs.getCoords(board);
             board.getRows().get(coords.getRow()).move(coords.getCol(), whoseMove);
-            end = checkWinner(board, coords.getRow(), coords.getCol());
+            end = checkWinner(board, coords.getRow(), coords.getCol(), whoseMove);
             if (end) {
                 System.out.println(board);
                 System.out.println("The winner is " + whoseMove);
                 break;
             }
+
             if (isComputerGame) {
                 System.out.println(board);
                 switchPlayer();
-                computerMoves.computerMove(board, whoseMove);
-
+                end = computerMoves.computerMove(board, whoseMove);
+                if (end) {
+                    System.out.println(board);
+                    System.out.println("The winner is " + whoseMove);
+                    break;
+                }
             }
             System.out.println(board);
             switchPlayer();
-
         }
     }
 
-    private boolean checkWinner(Board board, int row, int col) {
+    public static boolean checkWinner(Board board, int row, int col, Figure whoseMove) {
         boolean isWinner = true;
 
         for (int i = 0; i < 3; i++) {
@@ -77,23 +80,15 @@ public class GameRunner {
             isWinner = true;
         }
 
+        if (isWinner) {
+            return isWinner;
+        }
         for (int i = 0; i < 3; i++) {
             if (!board.getFigure(i, i).equals(whoseMove)) {
                 isWinner = false;
                 break;
             }
             isWinner = true;
-        }
-
-        for (int i = 2; i >= 0; i--) {
-            if (!board.getFigure(i, row).equals(whoseMove)) {
-                isWinner = false;
-                break;
-            }
-
-            if (isWinner) {
-                return isWinner;
-            }
         }
 
         return isWinner;

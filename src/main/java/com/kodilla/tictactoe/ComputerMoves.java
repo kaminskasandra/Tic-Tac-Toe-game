@@ -7,8 +7,10 @@ import com.kodilla.tictactoe.figures.Figure;
 
 import java.util.Random;
 
+import static com.kodilla.tictactoe.GameRunner.checkWinner;
+
 public class ComputerMoves {
-    public void computerMove(Board board, Figure whoseMove) {
+    public boolean computerMove(Board board, Figure whoseMove) {
         int max = 2;
         int min = 0;
 
@@ -22,5 +24,6 @@ public class ComputerMoves {
 
         System.out.println("Computer move: ");
         board.getRows().get(firstCoord).move(secondCoord, whoseMove);
+        return checkWinner(board, firstCoord, secondCoord, whoseMove);
     }
 }

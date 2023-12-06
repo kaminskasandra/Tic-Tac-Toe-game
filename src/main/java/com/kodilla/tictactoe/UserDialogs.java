@@ -31,7 +31,6 @@ public class UserDialogs {
             } catch (Exception e) {
                 System.out.println("Try again");
             }
-
         }
     }
 }
