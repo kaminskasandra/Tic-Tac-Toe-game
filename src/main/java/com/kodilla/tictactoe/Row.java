@@ -23,7 +23,7 @@ public class Row {
         String t = "|";
         String h = "";
         for (int c = 0; c < 3; c++) {
-             h += t + columns.get(c);
+            h += t + columns.get(c);
         }
         h += t + "\n";
         return h;

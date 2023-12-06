@@ -2,6 +2,8 @@ package com.kodilla.tictactoe.figures;
 
 import com.kodilla.tictactoe.Shape;
 
+import java.util.Objects;
+
 import static com.kodilla.tictactoe.Shape.CROSS;
 
 public class Cross implements Figure {
@@ -15,5 +17,18 @@ public class Cross implements Figure {
     @Override
     public String toString() {
         return "X";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cross cross = (Cross) o;
+        return shape == cross.shape;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(shape);
     }
 }
