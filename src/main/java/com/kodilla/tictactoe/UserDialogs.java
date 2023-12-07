@@ -2,6 +2,7 @@ package com.kodilla.tictactoe;
 
 import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
+import com.kodilla.tictactoe.figures.Empty;
 
 import java.util.Scanner;
 
@@ -20,10 +21,7 @@ public class UserDialogs {
                 if (col < 0 || col > 2 || row < 0 || row > 2) {
                     System.out.println("Coordinates must be between 0-2");
                     throw new Exception();
-                } else if (board.getRows().get(row).getColumns().get(col).getClass().equals(Cross.class)) {
-                    System.out.println("This place is taken");
-                    throw new Exception();
-                } else if (board.getRows().get(row).getColumns().get(col).getClass().equals(Circle.class)) {
+                } else if (!board.getRows().get(row).getColumns().get(col).getClass().equals(Empty.class)) {
                     System.out.println("This place is taken");
                     throw new Exception();
                 }

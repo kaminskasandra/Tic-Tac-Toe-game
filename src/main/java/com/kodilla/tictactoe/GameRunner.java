@@ -90,6 +90,13 @@ public class GameRunner {
             }
             isWinner = true;
         }
+        for (int i = 0; i < 3; i++) {
+            if (!board.getFigure(i, (3-1) - i).equals(whoseMove)) {
+                isWinner = false;
+                break;
+            }
+            isWinner = true;
+        }
 
         return isWinner;
     }
