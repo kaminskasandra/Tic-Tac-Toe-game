@@ -7,7 +7,40 @@ import org.springframework.boot.test.context.SpringBootTest;
 class TicTacToeGameApplicationTests {
 
     @Test
-    void contextLoads() {
+    void testPlayerOWinsInRows() {
     }
 
+    @Test
+    void testPlayerOWinsInColumns() {
+    }
+
+    @Test
+    void testPlayerOWinsDiagonal() {
+    }
+    @Test
+    void testPlayerOWinsAntiDiagonal() {
+    }
+    @Test
+    void testPlayerXWinsInRows() {
+    }
+
+    @Test
+    void testPlayerXWinsInColumns() {
+    }
+
+    @Test
+    void testPlayerXWinsDiagonal() {
+    }
+    @Test
+    void testPlayerXWinsAntiDiagonal() {
+    }
+
+    @Test
+    void testGameWithoutWinner() {
+    }
+
+    @Test
+    void testWrongMoves() {
+
+    }
 }

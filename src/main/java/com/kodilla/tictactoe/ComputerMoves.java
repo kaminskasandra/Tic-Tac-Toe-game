@@ -1,17 +1,13 @@
 package com.kodilla.tictactoe;
 
-import com.kodilla.tictactoe.figures.Circle;
-import com.kodilla.tictactoe.figures.Cross;
 import com.kodilla.tictactoe.figures.Empty;
 import com.kodilla.tictactoe.figures.Figure;
-
-import java.util.Random;
-
 import static com.kodilla.tictactoe.GameRunner.checkWinner;
+import static com.kodilla.tictactoe.TicTacToeGameApplication.BOARD_SIZE;
 
 public class ComputerMoves {
     public boolean computerMove(Board board, Figure whoseMove) {
-        int max = 2;
+        int max = BOARD_SIZE - 1;
         int min = 0;
 
         int secondCoord;

@@ -6,11 +6,13 @@ import com.kodilla.tictactoe.figures.Figure;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kodilla.tictactoe.TicTacToeGameApplication.BOARD_SIZE;
+
 public class Row {
     private final List<Figure> columns = new ArrayList<>();
 
     public Row() {
-        for(int c = 0; c < 3; c++){
+        for(int c = 0; c < BOARD_SIZE; c++){
             columns.add(new Empty());
         }
     }
@@ -22,7 +24,7 @@ public class Row {
     public String toString() {
         String t = "|";
         String h = "";
-        for (int c = 0; c < 3; c++) {
+        for (int c = 0; c < BOARD_SIZE; c++) {
             h += t + columns.get(c);
         }
         h += t + "\n";

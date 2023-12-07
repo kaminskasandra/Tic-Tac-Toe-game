@@ -3,6 +3,7 @@ package com.kodilla.tictactoe;
 import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
 import com.kodilla.tictactoe.figures.Figure;
+import static com.kodilla.tictactoe.TicTacToeGameApplication.BOARD_SIZE;
 
 import java.util.Scanner;
 
@@ -67,7 +68,6 @@ public class GameRunner {
                 break;
             }
         }
-
         if (isWinner) {
             return isWinner;
         }
