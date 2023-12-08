@@ -1,10 +1,8 @@
 package com.kodilla.tictactoe.figures;
 
-import com.kodilla.tictactoe.Shape;
-
 import java.util.Objects;
 
-import static com.kodilla.tictactoe.Shape.CROSS;
+import static com.kodilla.tictactoe.figures.Shape.CROSS;
 
 public class Cross implements Figure {
     private Shape shape;

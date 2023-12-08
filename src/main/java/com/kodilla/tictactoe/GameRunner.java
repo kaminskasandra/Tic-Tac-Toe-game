@@ -4,6 +4,7 @@ import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
 import com.kodilla.tictactoe.figures.Figure;
 import static com.kodilla.tictactoe.TicTacToeGameApplication.BOARD_SIZE;
+import static com.kodilla.tictactoe.WinnerChecker.checkWinner;
 
 import java.util.Scanner;
 
@@ -29,6 +30,7 @@ public class GameRunner {
         } else {
             System.out.println("Incorrect choice. Enter 1 or 2");
             gameVersion = scanner.nextLine();
+            isComputerGame = true;
         }
         System.out.println("Starting the game..." +
                 "Place your shape");
@@ -57,48 +59,6 @@ public class GameRunner {
             System.out.println(board);
             switchPlayer();
         }
-    }
-
-    public static boolean checkWinner(Board board, int row, int col, Figure whoseMove) {
-        boolean isWinner = true;
-
-        for (int i = 0; i < 3; i++) {
-            if (!board.getFigure(i, row).equals(whoseMove)) {
-                isWinner = false;
-                break;
-            }
-        }
-        if (isWinner) {
-            return isWinner;
-        }
-
-        for (int i = 0; i < 3; i++) {
-            if (!board.getFigure(col, i).equals(whoseMove)) {
-                isWinner = false;
-                break;
-            }
-            isWinner = true;
-        }
-
-        if (isWinner) {
-            return isWinner;
-        }
-        for (int i = 0; i < 3; i++) {
-            if (!board.getFigure(i, i).equals(whoseMove)) {
-                isWinner = false;
-                break;
-            }
-            isWinner = true;
-        }
-        for (int i = 0; i < 3; i++) {
-            if (!board.getFigure(i, (3-1) - i).equals(whoseMove)) {
-                isWinner = false;
-                break;
-            }
-            isWinner = true;
-        }
-
-        return isWinner;
     }
 
     private void switchPlayer() {

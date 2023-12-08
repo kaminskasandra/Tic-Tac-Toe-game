@@ -12,7 +12,6 @@ public class TicTacToeGameApplication {
 
         Scanner scanner = new Scanner(System.in);
         BOARD_SIZE = scanner.nextInt();
-        WIN_NUMBER = scanner.nextInt();
         GameRunner gameRunner = new GameRunner();
         Board board = new Board();
         gameRunner.TttRunner(board);

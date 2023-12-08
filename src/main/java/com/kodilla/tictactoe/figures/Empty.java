@@ -1,7 +1,6 @@
 package com.kodilla.tictactoe.figures;
-import com.kodilla.tictactoe.Shape;
 
-import static com.kodilla.tictactoe.Shape.EMPTY;
+import static com.kodilla.tictactoe.figures.Shape.EMPTY;
 public class Empty implements Figure {
     private Shape shape;
     @Override
