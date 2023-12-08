@@ -2,12 +2,11 @@ package com.kodilla.tictactoe;
 
 import com.kodilla.tictactoe.figures.Empty;
 import com.kodilla.tictactoe.figures.Figure;
-import static com.kodilla.tictactoe.TicTacToeGameApplication.BOARD_SIZE;
 import static com.kodilla.tictactoe.WinnerChecker.checkWinner;
 
 public class ComputerMoves {
     public boolean computerMove(Board board, Figure whoseMove) {
-        int max = BOARD_SIZE - 1;
+        int max = board.getBoardSize();
         int min = 0;
 
         int secondCoord;

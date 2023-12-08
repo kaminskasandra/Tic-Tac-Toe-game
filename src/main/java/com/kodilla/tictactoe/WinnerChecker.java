@@ -7,18 +7,22 @@ public class WinnerChecker {
         boolean isWinner = true;
 
         //row
-        for (int i = 0; i < 3; i++) {
+        int counter = 0;
+        for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, row).equals(whoseMove)) {
-                isWinner = false;
-                break;
+                counter = 0;
+            } else {
+                counter++;
             }
-        }
-        if (isWinner) {
-            return isWinner;
+            if (counter >= (Math.min(board.getBoardSize(), 5))) {
+                return isWinner;
+            }
+            counter++;
         }
 
+
         //column
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(col, i).equals(whoseMove)) {
                 isWinner = false;
                 break;
@@ -31,7 +35,7 @@ public class WinnerChecker {
         }
 
         //diagonal
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, i).equals(whoseMove)) {
                 isWinner = false;
                 break;
@@ -43,8 +47,8 @@ public class WinnerChecker {
         }
 
         //anti diagonal
-        for (int i = 0; i < 3; i++) {
-            if (!board.getFigure(i, (3 - 1) - i).equals(whoseMove)) {
+        for (int i = 0; i < board.getBoardSize(); i++) {
+            if (!board.getFigure(i, (board.getBoardSize() - 1) - i).equals(whoseMove)) {
                 isWinner = false;
                 break;
             }
