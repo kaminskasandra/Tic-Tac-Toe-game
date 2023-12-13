@@ -129,9 +129,4 @@ class TicTacToeGameApplicationTests {
         // then
         assertFalse(isWinner);
     }
-
-    @Test
-    void testWrongMovesThrowsAnException() {
-
-    }
 }
