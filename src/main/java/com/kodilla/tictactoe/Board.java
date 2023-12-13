@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Board {
     private int boardSize;
+    private int moveCount;
     private final List<Row> rows = new ArrayList<>();
 
     public Board(int boardSize) {
@@ -44,6 +45,14 @@ public class Board {
 
     public List<Row> getRows() {
         return rows;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
     }
 }
 
