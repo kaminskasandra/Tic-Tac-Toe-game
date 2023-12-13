@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class Board {
-    private int boardSize;
+    private final int boardSize;
     private int moveCount;
     private final List<Row> rows = new ArrayList<>();
 

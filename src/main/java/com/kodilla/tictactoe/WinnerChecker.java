@@ -9,6 +9,7 @@ public class WinnerChecker {
 
         //row
         if (checkWinnerInRow(board, row, whoseMove)) return true;
+
         //column
         if (checkWinnerInColumn(board, col, whoseMove)) return true;
 
@@ -19,14 +20,14 @@ public class WinnerChecker {
         if (checkWinnerInAntiDiagonal(board, whoseMove)) return true;
 
         //check draw
-        if(board.getMoveCount() == (Math.pow(board.getBoardSize(), 2))){
+        if (board.getMoveCount() == (Math.pow(board.getBoardSize(), 2))) {
             System.out.println("It's a draw!");
         }
 
         return isWinner;
     }
 
-    private static boolean checkWinnerInAntiDiagonal(Board board, Figure whoseMove) {
+    static boolean checkWinnerInAntiDiagonal(Board board, Figure whoseMove) {
         int counter = 0;
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, (board.getBoardSize() - 1) - i).equals(whoseMove)) {
@@ -41,7 +42,7 @@ public class WinnerChecker {
         return false;
     }
 
-    private static boolean checkWinnerInDiagonal(Board board, Figure whoseMove) {
+    static boolean checkWinnerInDiagonal(Board board, Figure whoseMove) {
         int counter = 0;
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, i).equals(whoseMove)) {
@@ -56,7 +57,7 @@ public class WinnerChecker {
         return false;
     }
 
-    private static boolean checkWinnerInColumn(Board board, int col, Figure whoseMove) {
+    static boolean checkWinnerInColumn(Board board, int col, Figure whoseMove) {
         int counter = 0;
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(col, i).equals(whoseMove)) {

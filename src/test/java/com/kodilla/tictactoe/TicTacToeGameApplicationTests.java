@@ -2,6 +2,7 @@ package com.kodilla.tictactoe;
 
 import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
+import com.kodilla.tictactoe.figures.Figure;
 import org.assertj.core.internal.WholeNumbers;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,7 +22,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(0).move(1, new Circle());
         board.getRows().get(0).move(2, new Circle());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 0, 0, new Circle());
+        boolean isWinner = WinnerChecker.checkWinnerInRow(board, 0, new Circle());
         // then
         assertTrue(isWinner);
     }
@@ -34,7 +35,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(0, new Circle());
         board.getRows().get(2).move(0, new Circle());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 1, 0, new Circle());
+        boolean isWinner = WinnerChecker.checkWinnerInColumn(board, 0, new Circle());
         // then
         assertTrue(isWinner);
     }
@@ -47,7 +48,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(1, new Circle());
         board.getRows().get(2).move(2, new Circle());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 2, 2, new Circle());
+        boolean isWinner = WinnerChecker.checkWinnerInDiagonal(board, new Circle());
         // then
         assertTrue(isWinner);
 
@@ -60,7 +61,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(1, new Circle());
         board.getRows().get(2).move(0, new Circle());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 2, 0, new Circle());
+        boolean isWinner = WinnerChecker.checkWinnerInAntiDiagonal(board, new Circle());
         // then
         assertTrue(isWinner);
     }
@@ -72,7 +73,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(0).move(1, new Cross());
         board.getRows().get(0).move(2, new Cross());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 0, 0, new Cross());
+        boolean isWinner = WinnerChecker.checkWinnerInRow(board, 0, new Cross());
         // then
         assertTrue(isWinner);
     }
@@ -85,7 +86,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(0, new Cross());
         board.getRows().get(2).move(0, new Cross());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 1, 0, new Cross());
+        boolean isWinner =WinnerChecker.checkWinnerInColumn(board, 0, new Cross());
         // then
         assertTrue(isWinner);
     }
@@ -98,7 +99,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(1, new Cross());
         board.getRows().get(2).move(2, new Cross());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 2, 2, new Cross());
+        boolean isWinner = WinnerChecker.checkWinnerInDiagonal(board, new Cross());
         // then
         assertTrue(isWinner);
     }
@@ -110,7 +111,7 @@ class TicTacToeGameApplicationTests {
         board.getRows().get(1).move(1, new Cross());
         board.getRows().get(2).move(0, new Cross());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 2, 0, new Cross());
+        boolean isWinner = WinnerChecker.checkWinnerInAntiDiagonal(board, new Cross());
         // then
         assertTrue(isWinner);
     }
@@ -136,13 +137,6 @@ class TicTacToeGameApplicationTests {
 
     @Test
     void testWrongMoves() {
-        //given
-
-        
-        //when
-
-        
-        //then
 
     }
 }
