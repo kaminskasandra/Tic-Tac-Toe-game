@@ -4,10 +4,7 @@ import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import static org.junit.jupiter.api.Assertions.*;
-
-
 
 @SpringBootTest
 class TicTacToeGameApplicationTests {
@@ -134,7 +131,7 @@ class TicTacToeGameApplicationTests {
     }
 
     @Test
-    void testWrongMoves() {
+    void testWrongMovesThrowsAnException() {
 
     }
 }

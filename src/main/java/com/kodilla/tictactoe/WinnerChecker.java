@@ -1,25 +1,19 @@
 package com.kodilla.tictactoe;
 
 import com.kodilla.tictactoe.figures.Figure;
-
 public class WinnerChecker {
     public static boolean checkWinner(Board board, int row, int col, Figure whoseMove) {
         boolean isWinner = false;
         board.setMoveCount(board.getMoveCount() + 1);
 
-        //row
         if (checkWinnerInRow(board, row, whoseMove)) return true;
 
-        //column
         if (checkWinnerInColumn(board, col, whoseMove)) return true;
 
-        //diagonal
         if (checkWinnerInDiagonal(board, whoseMove)) return true;
 
-        //anti diagonal
         if (checkWinnerInAntiDiagonal(board, whoseMove)) return true;
 
-        //check draw
         if (board.getMoveCount() == (Math.pow(board.getBoardSize(), 2))) {
             System.out.println("It's a draw!");
         }
