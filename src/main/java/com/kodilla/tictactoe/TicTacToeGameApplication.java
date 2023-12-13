@@ -10,6 +10,8 @@ public class TicTacToeGameApplication {
 
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the 'Tic-Tac-Toe' game. \n" +
+                "Select the board size:");
         int size = scanner.nextInt();
         GameRunner gameRunner = new GameRunner();
         Board board = new Board(size);

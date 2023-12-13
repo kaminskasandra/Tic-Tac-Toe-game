@@ -16,16 +16,13 @@ public class GameRunner {
         boolean end = false;
         boolean isComputerGame = false;
 
-        System.out.println("Welcome to the 'Tic-Tac-Toe' game. Please enter your name:");
-        String name = scanner.nextLine();
         System.out.println(("Select game version. 1 - game with the computer 2 - game with another user"));
         String gameVersion = scanner.nextLine();
         if (gameVersion.equals("1")) {
             System.out.println("You will play against the computer");
             isComputerGame = true;
         } else if (gameVersion.equals("2")) {
-            System.out.println(("You will play against the another player. Please enter the second player's name:"));
-            String nameSecondPlayer = scanner.nextLine();
+            System.out.println(("You will play against the another player."));
         } else {
             System.out.println("Incorrect choice. Enter 1 or 2");
             gameVersion = scanner.nextLine();

@@ -6,7 +6,7 @@ import static com.kodilla.tictactoe.WinnerChecker.checkWinner;
 
 public class ComputerMoves {
     public boolean computerMove(Board board, Figure whoseMove) {
-        int max = board.getBoardSize();
+        int max = board.getBoardSize() - 1;
         int min = 0;
 
         int secondCoord;

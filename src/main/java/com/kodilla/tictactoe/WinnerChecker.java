@@ -4,7 +4,7 @@ import com.kodilla.tictactoe.figures.Figure;
 
 public class WinnerChecker {
     public static boolean checkWinner(Board board, int row, int col, Figure whoseMove) {
-        boolean isWinner = true;
+        boolean isWinner = false;
 
         //row
         int counter = 0;
@@ -15,47 +15,54 @@ public class WinnerChecker {
                 counter++;
             }
             if (counter >= (Math.min(board.getBoardSize(), 5))) {
-                return isWinner;
+                System.out.println("test 1");
+                return true;
             }
-            counter++;
         }
-
 
         //column
+
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(col, i).equals(whoseMove)) {
-                isWinner = false;
-                break;
+                counter = 0;
+            } else {
+                counter++;
             }
-            isWinner = true;
-        }
-
-        if (isWinner) {
-            return isWinner;
+            if (counter >= (Math.min(board.getBoardSize(), 5))) {
+                System.out.println("test2");
+                return true;
+            }
         }
 
         //diagonal
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, i).equals(whoseMove)) {
-                isWinner = false;
-                break;
+                counter = 0;
+            } else {
+                counter++;
             }
-            isWinner = true;
+            if (counter >= (Math.min(board.getBoardSize(), 5))) {
+                System.out.println("test3");
+                return true;
+            }
         }
-        if (isWinner) {
-            return isWinner;
-        }
+
 
         //anti diagonal
         for (int i = 0; i < board.getBoardSize(); i++) {
             if (!board.getFigure(i, (board.getBoardSize() - 1) - i).equals(whoseMove)) {
-                isWinner = false;
-                break;
+                counter = 0;
+            } else {
+                counter++;
             }
-            isWinner = true;
+            if (counter >= (Math.min(board.getBoardSize(), 5))) {
+                System.out.println("test4");
+                return true;
+            }
         }
 
         //draw
+
 
         return isWinner;
     }

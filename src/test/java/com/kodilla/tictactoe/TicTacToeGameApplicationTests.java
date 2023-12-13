@@ -6,8 +6,8 @@ import org.assertj.core.internal.WholeNumbers;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
 
 @SpringBootTest
@@ -16,7 +16,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerOWinsInRows() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Circle());
         board.getRows().get(0).move(1, new Circle());
         board.getRows().get(0).move(2, new Circle());
@@ -29,12 +29,12 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerOWinsInColumns() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Circle());
         board.getRows().get(1).move(0, new Circle());
         board.getRows().get(2).move(0, new Circle());
         //when
-        boolean isWinner = WinnerChecker.checkWinner(board, 1, 0, new Cross());
+        boolean isWinner = WinnerChecker.checkWinner(board, 1, 0, new Circle());
         // then
         assertTrue(isWinner);
     }
@@ -42,7 +42,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerOWinsDiagonal() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Circle());
         board.getRows().get(1).move(1, new Circle());
         board.getRows().get(2).move(2, new Circle());
@@ -55,7 +55,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerOWinsAntiDiagonal() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(2, new Circle());
         board.getRows().get(1).move(1, new Circle());
         board.getRows().get(2).move(0, new Circle());
@@ -67,7 +67,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerXWinsInRows() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Cross());
         board.getRows().get(0).move(1, new Cross());
         board.getRows().get(0).move(2, new Cross());
@@ -80,7 +80,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerXWinsInColumns() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Cross());
         board.getRows().get(1).move(0, new Cross());
         board.getRows().get(2).move(0, new Cross());
@@ -93,7 +93,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerXWinsDiagonal() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(0, new Cross());
         board.getRows().get(1).move(1, new Cross());
         board.getRows().get(2).move(2, new Cross());
@@ -105,7 +105,7 @@ class TicTacToeGameApplicationTests {
     @Test
     void testPlayerXWinsAntiDiagonal() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(2, new Cross());
         board.getRows().get(1).move(1, new Cross());
         board.getRows().get(2).move(0, new Cross());
@@ -118,10 +118,16 @@ class TicTacToeGameApplicationTests {
     @Test
     void testGameWithoutWinner() {
         //given
-        Board board = new Board();
+        Board board = new Board(3);
         board.getRows().get(0).move(2, new Cross());
-        board.getRows().get(1).move(1, new Circle());
+        board.getRows().get(0).move(1, new Circle());
+        board.getRows().get(0).move(0, new Cross());
+        board.getRows().get(1).move(0, new Circle());
         board.getRows().get(2).move(0, new Cross());
+        board.getRows().get(1).move(1, new Circle());
+        board.getRows().get(2).move(1, new Cross());
+        board.getRows().get(1).move(2, new Cross());
+        board.getRows().get(2).move(2, new Circle());
         //when
         boolean isWinner = WinnerChecker.checkWinner(board, 2, 0, new Cross());
         // then
@@ -130,6 +136,13 @@ class TicTacToeGameApplicationTests {
 
     @Test
     void testWrongMoves() {
+        //given
+
+        
+        //when
+
+        
+        //then
 
     }
 }
