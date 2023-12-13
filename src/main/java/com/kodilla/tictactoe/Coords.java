@@ -3,8 +3,8 @@ package com.kodilla.tictactoe;
 import java.util.Objects;
 
 public class Coords {
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
 
     public Coords(int row, int col) {
         this.row = row;

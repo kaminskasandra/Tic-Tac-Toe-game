@@ -2,13 +2,11 @@ package com.kodilla.tictactoe;
 
 import com.kodilla.tictactoe.figures.Circle;
 import com.kodilla.tictactoe.figures.Cross;
-import com.kodilla.tictactoe.figures.Figure;
-import org.assertj.core.internal.WholeNumbers;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
+
 
 
 @SpringBootTest
